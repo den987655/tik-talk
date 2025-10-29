@@ -1,0 +1,15 @@
+@if (subscriber(); as subscriber ) {
+<a
+  #anchor
+  class="subscriber-avatar-btn" [routerLink]="['/profile', subscriber.id]">
+  <img [src]="subscriber.avatarUrl | imgUrl"/>
+</a>
+
+  @if (isMouseOver()) {
+    <app-portal [host]="anchor">
+  <div class="tooltip">
+    {{subscriber.firstName}}
+  </div>
+    </app-portal>
+  }
+}
