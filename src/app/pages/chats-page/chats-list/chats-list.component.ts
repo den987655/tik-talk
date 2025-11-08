@@ -4,6 +4,7 @@ import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {map, startWith, switchMap} from 'rxjs';
 import {ChatsService} from '../../../data/services/chats.service';
+import {TestDirective} from '../../profile-page/post-feed/test.directive';
 import {ChatsBtnComponent} from '../chats-btn/chats-btn.component';
 
 @Component({
@@ -13,12 +14,18 @@ import {ChatsBtnComponent} from '../chats-btn/chats-btn.component';
     ReactiveFormsModule,
     RouterLink,
     RouterLinkActive,
-    AsyncPipe
+    AsyncPipe,
+    TestDirective
   ],
   templateUrl: './chats-list.component.html',
-  styleUrl: './chats-list.component.scss'
+  styleUrl: './chats-list.component.scss',
+
 })
 export class ChatsListComponent {
+  directive = inject(TestDirective)
+  constructor() {
+    console.log(this.directive.nodeName)
+  }
   chatsService = inject(ChatsService)
 
   filterChatsControl = new FormControl('')

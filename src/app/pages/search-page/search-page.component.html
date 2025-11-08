@@ -1,14 +1,30 @@
-<app-profile-filters>
+<app-profile-filters id="app-search-page">
 
 </app-profile-filters>
 
-<div class="profile-card__wrapper">
-  @for (profile of profiles() ; track profile.id) {
+<div class="profile-card__wrapper"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     (scrolled)="onScroll()"
+>
+  @for (profile of profiles(); track profile.id;) {
     <app-profile-card
       [profile]="profile"
     ></app-profile-card>
-  }
+    }
 </div>
 <app-sidebar-portal>
-<!--  <span>Найдено профилей: {{ profilesLength() }}</span>-->
+  <!--  <span>Найдено профилей: {{ profilesLength() }}</span>-->
 </app-sidebar-portal>
+
+
+<!--    @if (last) {-->
+<!--      @defer (on viewport) {-->
+<!--        <app-infinite-scroll-trigger-->
+<!--          (loaded)="timeToFetch()"-->
+<!--        ></app-infinite-scroll-trigger>-->
+<!--      } @placeholder {-->
+<!--        <div></div>-->
+<!--      }-->
+<!--  }-->

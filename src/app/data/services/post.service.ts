@@ -8,6 +8,7 @@ import type {Profile} from '../interfaces/profile.interface';
   providedIn: 'root'
 })
 export class PostService {
+  id = Math.random() * 1000
   baseApiUrl = 'https://icherniakov.ru/yt-course/';
   #http = inject(HttpClient)
   posts = signal<Post[]>([])

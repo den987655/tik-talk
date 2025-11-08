@@ -4,19 +4,21 @@ import {PostService} from '../../../data/services/post.service';
 import {PostInputComponent} from '../post-input/post-input.component';
 import {COLOR} from '../post/color.token';
 import {PostComponent} from '../post/post.component';
+import {TestDirective} from './test.directive';
 
 @Component({
   selector: 'app-post-feed',
   imports: [
     PostInputComponent,
-    PostComponent
+    PostComponent,
+    TestDirective
   ],
   templateUrl: './post-feed.component.html',
   styleUrl: './post-feed.component.scss',
   providers: [
     {
       provide: COLOR,
-      useValue: 'orange'
+      useValue: 'red'
     }
   ]
 })

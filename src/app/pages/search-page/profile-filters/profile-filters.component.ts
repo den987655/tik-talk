@@ -42,16 +42,16 @@ export class ProfileFiltersComponent implements OnDestroy, OnInit {
     //     }))
     // })
 
-    // this.store.select(profilesReducer.selectProfile).pipe(
-    //   take(1),
-    //   takeUntil(this.destroy$)
-    // ).subscribe(profiles => {
-      // if (profiles.length === 0) {
-      // this.store.dispatch(profileActions.updateFilters({
-      //   filters: {firstName: '', lastName: '', stack: ''}
-      // }))
-      // }
-    //})
+    this.store.select(profilesReducer.selectProfile).pipe(
+      take(1),
+      takeUntil(this.destroy$)
+    ).subscribe(profiles => {
+      if (profiles.length === 0) {
+      this.store.dispatch(profileActions.profilesFilter({
+        filtersProps: {firstName: '', lastName: '', stack: ''}
+      }))
+      }
+    })
 
 
     // Подписываемся на изменения формы
@@ -63,7 +63,7 @@ export class ProfileFiltersComponent implements OnDestroy, OnInit {
       .subscribe(res => {
         // Сохраняем фильтры и запускаем фильтрацию
 
-        // this.store.dispatch(profileActions.updateFilters({ filters }));
+        this.store.dispatch(profileActions.profilesFilter({ filtersProps: res }));
       });
   }
 

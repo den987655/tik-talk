@@ -3,6 +3,7 @@ import {Component, inject} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {switchMap} from 'rxjs';
 import {ChatsService} from '../../../data/services/chats.service';
+import {TestDirective} from '../../profile-page/post-feed/test.directive';
 import {ChatWorkspaceHeaderComponent} from './chat-workspace-header/chat-workspace-header.component';
 import {
   ChatWorkspaceMessagesWrapperComponent
@@ -13,7 +14,8 @@ import {
   imports: [
     ChatWorkspaceHeaderComponent,
     ChatWorkspaceMessagesWrapperComponent,
-    AsyncPipe
+    AsyncPipe,
+    TestDirective
   ],
   templateUrl: './chat-workspace.component.html',
   styleUrl: './chat-workspace.component.scss'
