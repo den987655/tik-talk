@@ -20,6 +20,7 @@ import {ChatsBtnComponent} from '../chats-btn/chats-btn.component';
   templateUrl: './chats-list.component.html',
   styleUrl: './chats-list.component.scss',
 
+  standalone: true
 })
 export class ChatsListComponent {
   directive = inject(TestDirective)

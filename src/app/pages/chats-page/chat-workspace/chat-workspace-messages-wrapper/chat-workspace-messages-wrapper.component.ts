@@ -22,6 +22,11 @@ export class ChatWorkspaceMessagesWrapperComponent {
   messages = this.chatService.activeChatMessages
 
   async onSendMessage(messageText: string) {
+    // this.chatService.wsAdapter.sendMessage(
+    //   messageText,
+    //   this.chat().id
+    // )
+
    await firstValueFrom(this.chatService.sendMessage(this.chat().id, messageText))
 
   await firstValueFrom(this.chatService.getChatById(this.chat().id))
